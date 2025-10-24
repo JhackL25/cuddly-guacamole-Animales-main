@@ -3,7 +3,7 @@ from firebase_admin import credentials, db
 from dotenv import load_dotenv
 import os
 
-# Cargar variables del archivo .env
+
 load_dotenv()
 
 SDK = os.getenv("SDK")
@@ -11,14 +11,14 @@ URL_DB = os.getenv("URL_DB")
 
 class FB:
     def __init__(self):
-        # Inicializar Firebase solo una vez
+        
         if not firebase_admin._apps:
             cred = credentials.Certificate(SDK)
             firebase_admin.initialize_app(cred, {
                 'databaseURL': URL_DB
             })
         
-        # Referencia base donde se guardan los datos
+        
         self.ref = db.reference('server/saving-data')
         self.users_ref = self.ref.child('Users')
 
@@ -29,7 +29,7 @@ class FB:
         """
         ref_animal = self.users_ref.child(animal.nombre)
 
-        if ref_animal.get() is None:  # Si no existe aún
+        if ref_animal.get() is None:  
             ref_animal.set({
                 'Nombre': animal.nombre,
                 'Edad': animal.edad,
