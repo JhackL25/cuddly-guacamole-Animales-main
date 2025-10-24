@@ -1,6 +1,6 @@
 # main.py
 from subclases import Perro, Gato, Pajaro
-from firebase_class import FB   # Usa tu clase existente
+from firebase_class import FB   
 import time
 
 def subir_animales(fb, animales):
@@ -15,7 +15,7 @@ def subir_animales(fb, animales):
             'Sonido': animal.hablar()
         })
         print(f"✅ Animal '{animal.nombre}' subido correctamente.")
-        time.sleep(0.3)  # pequeña pausa visual (opcional)
+        time.sleep(0.3)  
 
 
 def leer_animales(fb):
@@ -36,7 +36,7 @@ def leer_animales(fb):
 
 
 def main():
-    # Inicializar conexión con Firebase
+    
     fb = FB()
 
     # Crear animales localmente
@@ -52,9 +52,10 @@ def main():
     print("\nEsperando un momento antes de leer...\n")
     time.sleep(1)
 
-    # Leer desde la nube
+    
     leer_animales(fb)
 
 
 if __name__ == "__main__":
     main()
+
